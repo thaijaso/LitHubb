@@ -12,6 +12,7 @@ myApp.factory('UserFactory', function ($http) {
 		$http.post('/loginUser', user).success(function (userFound) {
 			// console.log('made it back from database, userid: ', userFound[0].id);
 			sessionStorage.setItem('sessionID', userFound[0].id);
+			sessionStorage.setItem('sessionName', userFound[0].first_name);
 			callback(userFound);
 		});
 	}

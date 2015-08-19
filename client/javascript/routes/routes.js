@@ -1,6 +1,6 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'uiGmapgoogle-maps']);
 
-myApp.config(function ($routeProvider) {
+myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'partials/map.html'
@@ -11,4 +11,10 @@ myApp.config(function ($routeProvider) {
 		.when('/feed', {
 			templateUrl: 'partials/feed.html'
 		})
+
+	uiGmapGoogleMapApiProvider.configure({
+		v: '3.17',
+		libraries: 'weather, geometry, visualization'
+	});
+
 });
