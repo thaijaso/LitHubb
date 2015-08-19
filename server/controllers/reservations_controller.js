@@ -10,12 +10,14 @@ connection.connect();
 
 module.exports = (function() {
 	return {
-		find: function(req, res) {
-			connection.query("SELECT * FROM users WHERE users.email = " + "'" + req.body.email + "'" + " AND users.password = " + "'" + req.body.password + "'", function(error, user, fields) {
+
+		retrieve: function(req, res) {
+			console.log(req.body.id);
+			connection.query("SELECT * FROM reservations WHERE reservations.user_id = " + "'" + req.body.id + "'", function(error, reservations, fields) {
 				if (error) {
 					console.log(error);
 				} else {
-					res.json(user);
+					res.json(reservations);
 				}
 			});
 		}	

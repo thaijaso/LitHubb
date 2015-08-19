@@ -1,5 +1,6 @@
 myApp.factory('UserFactory', function ($http) {
 	var factory = {};
+	var userid = '';
 	
 	factory.checkSession = function(callback) {
 		factory.sessionID = sessionStorage.getItem('sessionID');
@@ -8,8 +9,10 @@ myApp.factory('UserFactory', function ($http) {
 	}
 
 	factory.loginUser = function(user, callback) {
-		console.log('at factory, user: ', user);
+		// console.log('at factory, user: ', user);
 		$http.post('/loginUser', user).success(function (userFound) {
+			userid = userFound[0].id;
+			// console.log(userFound[0].id);
 			// console.log('made it back from database, userid: ', userFound[0].id);
 			sessionStorage.setItem('sessionID', userFound[0].id);
 			callback(userFound);
@@ -19,6 +22,10 @@ myApp.factory('UserFactory', function ($http) {
 	factory.logout = function(callback) {
 		sessionStorage.clear();
 		callback();
+	}
+
+	factory.returnUser = function(callback) {
+		callback(userid);
 	}
 	
 	return factory;
