@@ -8,10 +8,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/javascript/routes/routes.js"></script>
+    <script type="text/javascript" src="/javascript/factories/user_factory.js"></script>
+    <script type="text/javascript" src="/javascript/controllers/users_controller.js"></script>
     <script type="text/javascript" src="/javascript/factories/strain_factory.js"></script>
     <script type="text/javascript" src="/javascript/controllers/strains_controller.js"></script>
 </head>
-<body>
+<body ng-controller="UsersController">
 	<nav class="navbar navbar-default">
     	<div class="container">
     		<!-- Brand and toggle get grouped for better mobile display -->
@@ -36,14 +38,34 @@
     				<li><a href="#/">Dispensaries</a></li>
                     <li><a href="#/strains">Strains</a></li>
                     <li><a href="#/feed">Feed</a></li>
-    				<li class="dropdown">
-    					<a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jason <span class="caret"></span></a>
+    				<li ng-if="sessionID" class="dropdown">
+    					<a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ sessionName }} <span class="caret"></span></a>
     					<ul class="dropdown-menu">
     						<li><a href="#">Profile</a></li>
     						<li><a href="#">Smokydex</a></li>
-                            <li><a href="#">Sign out</a></li>
+                            <li><a href="#" ng-click="logout()">Sign out</a></li>
     					</ul>
     				</li>
+                    <li ng-if="!sessionID" class="dropdown">
+                        <a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                               <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="user.email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="user.password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary pull-right" ng-click="loginUser(user)">Login</button>
+                                </form>
+                                <form><button type="submit" class="btn btn-default">Sign up</form>
+                            </li>
+                            
+                        </ul>
+                    </li>
     			</ul>
     		</div><!-- /.navbar-collapse -->
     	</div><!-- /.container-fluid -->
