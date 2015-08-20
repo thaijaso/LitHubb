@@ -1,4 +1,4 @@
-myApp.controller('UsersController', function ($scope, UserFactory) {
+myApp.controller('UsersController', function ($scope, UserFactory, $location) {
 	
 	UserFactory.checkSession(function (sessionID) {
 		$scope.sessionID = sessionStorage.getItem('sessionID');
@@ -18,5 +18,11 @@ myApp.controller('UsersController', function ($scope, UserFactory) {
 		UserFactory.logout(function() {
 			$scope.sessionID = null;
 		});
+	}
+
+	$scope.addUser = function(newUser) {
+		UserFactory.addUser(newUser, function (userInfo) {
+			$location.path('/');
+		});	
 	}
 });
