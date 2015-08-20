@@ -18,6 +18,8 @@ module.exports = function(app) {
 		users.add(req, res);
 	});
 	app.post('/getReservations', function(req, res) {
+		// console.log(req.body);
 		reservations.retrieve(req, res);
 	});
+
 }
