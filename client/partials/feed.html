@@ -4,21 +4,29 @@
 		<h3>Feed</h3>
 		<table class="table table-condensed">
 			<tr>
-				<th>ID</th>
-				<th>Date</th>
+				<th>Name</th>
 				<th>Vendor</th>
-				<th>Product</th>
+				<th>Strain</th>
+				<th>Grams purchased</th>
+				<th>Eigths purchased</th>
+				<th>Quarters purchased</th>
+				<th>Halves purchased</th>
+				<th>Ounces purchased</th>
 				<th>Quantity (grams)</th>
 				<th>Total ($)</th>
 				<th>Status</th>
 			</tr>
 			<tr ng-repeat="reservation in reservations">
-				<td ng-bind="reservation.id"></td>
-				<td ng-bind="reservation.created_at | date:MMMM/dd/yyyy"></td>
+				<td >{{reservation.first_name}} {{reservation.last_name}}</td>
 				<td ng-bind="reservation.vendor"></td>
-				<td ng-bind="reservation.product"></td>
-				<td ng-bind="reservation.quantity"></td>
-				<td ng-bind="reservation.total"></td>
+				<td ng-bind="reservation.name"></td>
+				<td ng-bind="reservation.quantity_gram"></td>
+				<td ng-bind="reservation.quantity_eigth"></td>
+				<td ng-bind="reservation.quantity_quarter"></td>
+				<td ng-bind="reservation.quantity_half"></td>
+				<td ng-bind="reservation.quantity_oz"></td>
+				<td ng-bind="reservation.price_gram"></td>
+				<td>total</td>
 				<td ng-bind="reservation.status"></td>
 		</table>
 	</div>

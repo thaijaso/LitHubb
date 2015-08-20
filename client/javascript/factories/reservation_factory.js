@@ -7,7 +7,7 @@ myApp.factory('ReservationFactory', function($http) {
 	factory.getReservations = function(userID, callback) {
 		$http.post('/getReservations', {id: userID}).success(function (data) {
 			reservations = data;
-			// console.log(reservations);
+			console.log(reservations);
 			callback(reservations);
 		});
 	  }

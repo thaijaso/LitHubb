@@ -7,7 +7,7 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 
 	ReservationFactory.getReservations(userID, function (reservations) {
 			$scope.reservations  = reservations;
-			// console.log($scope.reservationInfo);
+			// console.log(reservations);
 		});
 	});
 
