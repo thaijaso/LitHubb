@@ -10,9 +10,9 @@ myApp.controller('MapsController', function ($scope, MapFactory, $location, $rou
 			coords: {latitude: 47.609811, longitude: -122.198494 }, 
 			icon: './../assets/icons/marker.png',
 			click: function(marker) {
-				console.log(marker);
+				var vendorID = marker.$$childHead.models[0].id;
 				$scope.$apply(function() {
-					$location.path('/vendor');
+					$location.path('/vendor/' + vendorID);
 				});	
 			}
 		}

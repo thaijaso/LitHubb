@@ -11,8 +11,11 @@ myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 		.when('/feed', {
 			templateUrl: 'partials/feed.html'
 		})
-		.when('/vendor', {
+		.when('/vendor/:id', {
 			templateUrl: 'partials/vendor.html'
+		})
+		.when('/reserve', {
+			templateUrl: 'partials/reserve.html'
 		})
 
 	uiGmapGoogleMapApiProvider.configure({
