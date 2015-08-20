@@ -6,7 +6,16 @@
 	margin-bottom: 0px;
 }
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #35DEA1;
+}
+
 .crumbs {
 	margin-top: 50px;
 	margin-bottom: 50px;
+}
+
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
 }
