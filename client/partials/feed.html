@@ -15,6 +15,7 @@
 				<th>Quantity (grams)</th>
 				<th>Total ($)</th>
 				<th>Status</th>
+				<th>Action</th>
 			</tr>
 			<tr ng-repeat="reservation in reservations">
 				<td >{{reservation.first_name}} {{reservation.last_name}}</td>
@@ -28,6 +29,7 @@
 				<td ng-bind="reservation.price_gram"></td>
 				<td>total</td>
 				<td ng-bind="reservation.status"></td>
+				<td><button ng-click="cancelOrder(reservation.id)">Cancel Order</button></td>
 		</table>
 	</div>
 </div>

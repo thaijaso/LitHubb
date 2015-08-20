@@ -1,16 +1,20 @@
 myApp.factory('ReservationFactory', function($http) {
 	var factory = {};
-	var reservations = []
+
 	// [{id: 1, created_at: Date.now(), vendor: 'Green Theory', product: 'Blue Dream', quantity: 2, total: 20, status: 0}, {id: 2, name: 'Derferick', swag: 'below average'}];
 	// [{id: 1, name: Jason, swag: med}];
 
 	factory.getReservations = function(userID, callback) {
-		$http.post('/getReservations', {id: userID}).success(function (data) {
-			reservations = data;
-			console.log(reservations);
+		$http.post('/getReservations', {id: userID}).success(function (reservations) {
 			callback(reservations);
 		});
 	  }
+
+	factory.cancelOrder = function(reservationID, callback) {
+		$http.post('/cancelOrder', {id: reservationID}).success(function () {
+			callback();
+		});
+	}
 
 	  return factory;
 	});	
@@ -44,12 +48,7 @@ myApp.factory('ReservationFactory', function($http) {
 	// 	});
 	// }
 
-	// // factory.removeQuestion = function(question, callback) {
-	// // 	$http.post('/removeQuestion', question).success(function (removedQuestion) {
-	// // 		questions.splice(questions.indexOf(question), 1);
-	// // 		callback(questions);
-	// // 	});
-	// // }
+
 
 	// factory.getQuestion = function(questionId, callback) {
 	// 	$http.get('/getQuestion/' + questionId).success(function (question) {

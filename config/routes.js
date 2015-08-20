@@ -30,4 +30,10 @@ module.exports = function(app) {
 	app.get('/strains/next', function(req, res) {
 		strains.getPage(req, res);
 	});
+
+	app.post('/cancelOrder', function(req, res) {
+		// console.log(req.body);
+		reservations.cancel(req, res);
+	});
+
 }
