@@ -3,7 +3,7 @@ myApp.controller('MapsController', function ($scope, MapFactory, $location, $rou
 		center: { latitude: 47.605628, longitude: -122.253799 }, 
 		zoom: 12 
 	};
-
+	
 	$scope.markers = [
 	   	{ 
 	   		id: 1, 

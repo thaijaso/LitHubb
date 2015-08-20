@@ -1,5 +1,5 @@
 myApp.controller('ReservationsController', function ($scope, $location, $routeParams, ReservationFactory, UserFactory) {
-	var userID = '';
+	// var userID = '';
 
 	UserFactory.returnUser(function(data){
 			userID = data;
@@ -7,10 +7,18 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 
 	ReservationFactory.getReservations(userID, function (reservations) {
 			$scope.reservations  = reservations;
-			// console.log(reservations);
 		});
-	});
+	
 
+	$scope.cancelOrder = function(reservationID) {
+		ReservationFactory.cancelOrder(reservationID, function () {
+			ReservationFactory.getReservations(userID, function (reservations) {
+				$scope.reservations  = reservations;
+			});
+		});
+	}
+
+	});
 
 	// $scope.addQuestion = function() {
 
@@ -22,11 +30,7 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 	// 	});	
 	// }
 
-	// $scope.removeQuestion = function(question) {
-	// 	QuestionFactory.removeQuestion(question, function (questions) {
-	// 		$scope.questions = questions;
-	// 	});
-	// }
+
 
 	// if ($routeParams.id) {
 	// 	QuestionFactory.getQuestion($routeParams.id, function(question) {

@@ -3,7 +3,7 @@ myApp.controller('UsersController', function ($scope, UserFactory, $location) {
 	UserFactory.checkSession(function (sessionID) {
 		$scope.sessionID = sessionStorage.getItem('sessionID');
 		$scope.sessionName = sessionStorage.getItem('sessionName')
-		console.log('sessionID set: ', $scope.sessionID);
+		// console.log('sessionID set: ', $scope.sessionID);
 	});
 
 	$scope.loginUser = function(user) {
