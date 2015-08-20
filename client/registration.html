@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+</head>
+<body id='reg'>
+	<!-- <div class='container'>
+		<h4>Register</h4>
+		<p ng-if="create_user.$invalid">All fields are required</p>
+		<p ng-if="create_user.$invalid">Passwords must match</p>
+		<form name='create_user' novalidate>
+			<p>First Name:</p><input type='text' ng-model='newUser.first_name' ng-required="true">
+			<p>Last Name:</p><input type='text' ng-model='newUser.last_name' ng-required="true">
+			<p>Email Address:</p><input type='email' ng-model='newUser.email' ng-required="true">
+			<p>Password:</p><input type='password' ng-model='newUser.password' ng-required="true">
+			<p>Password Confirmation:</p><input type='password' ng-required="true">
+			<p></p><input type="submit" ng-click="addUser(newUser)" ng-disabled="create_user.$invalid">
+		</form><br>
+		<a href='#/'>Already have an account? Sign in!</a>
+	</div> -->
+
+<div class='container'>
+	<div class= 'row'>
+		<div class= 'text-center'>
+  			<h2 class='col-sm-12'>Register</h2>
+		</div>
+	</div>
+  	<form class='form-horizontal' role='form'>
+  		<!-- first name -->
+    	<div class='form-group'>
+      		<label class='control-label col-sm-4' for='first_name'>First Name:</label>
+      		<div class='col-sm-4'>
+        		<input type='text' class='form-control' id='first_name' placeholder='First Name'>
+      		</div>
+    	</div>
+    	<!-- last name -->
+    	<div class='form-group'>
+      		<label class='control-label col-sm-4' for='last_name'>Last Name:</label>
+      		<div class='col-sm-4'>
+        		<input type='text' class='form-control' id='last_name' placeholder='Last Name'>
+      		</div>
+    	</div>
+    	<!-- email -->
+    	<div class='form-group'>
+      		<label class='control-label col-sm-4' for='email'>Email</label>
+      		<div class='col-sm-4'>
+        		<input type='email' class='form-control' placeholder='Email'>
+      		</div>
+    	</div>
+    	<!-- password -->
+    	<div class='form-group'>
+      		<label class='control-label col-sm-4' for='password'>Password:</label>
+      		<div class='col-sm-4'>          
+        		<input type='password' class='form-control' placeholder='Password'>
+      		</div>
+    	</div>
+    	<!-- confirm password -->
+    	<div class='form-group'>
+      		<label class='control-label col-sm-4' for='confirm_password'>Confrim Password:</label>
+      		<div class='col-sm-4'>          
+        		<input type='password' class='form-control' placeholder='Confirm Password'>
+      		</div>
+    	</div>
+    	<!-- submit button -->
+    	<div class='form-group'>        
+      		<div class='col-sm-offset-4 col-sm-4'>
+        		<button type='submit' class='btn btn-info'>Register</button>
+      		</div>
+    	</div>
+  </form>
+</div>
+</body>
+</html>

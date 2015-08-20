@@ -1,17 +1,24 @@
-<title>Register</title>
-	<body>
-		<div class='container'>
-				<h4>Register</h4>
-				<p ng-if="create_user.$invalid">All fields are required</p>
-				<p ng-if="create_user.$invalid">Passwords must match</p>
-				<form name='create_user' novalidate>
-					<p>First Name:</p><input type='text' ng-model='newUser.first_name' ng-required="true">
-					<p>Last Name:</p><input type='text' ng-model='newUser.last_name' ng-required="true">
-					<p>Email Address:</p><input type='email' ng-model='newUser.email' ng-required="true">
-					<p>Password:</p><input type='password' ng-model='newUser.password' ng-required="true">
-					<p>Password Confirmation:</p><input type='password' ng-required="true">
-					<p></p><input type="submit" ng-click="addUser(newUser)" ng-disabled="create_user.$invalid">
-				</form><br>
-				<a href='#/'>Already have an account? Sign in!</a>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+</head>
+<body>
+	<div id='reg' class='container'>
+		<h4>Register</h4>
+		<p ng-if="create_user.$invalid">All fields are required</p>
+		<p ng-if="create_user.$invalid">Passwords must match</p>
+		<form name='create_user' novalidate>
+			<p>First Name:</p><input type='text' ng-model='newUser.first_name' ng-required="true">
+			<p>Last Name:</p><input type='text' ng-model='newUser.last_name' ng-required="true">
+			<p>Email Address:</p><input type='email' ng-model='newUser.email' ng-required="true">
+			<p>Password:</p><input type='password' ng-model='newUser.password' ng-required="true">
+			<p>Password Confirmation:</p><input type='password' ng-required="true">
+			<p></p><input type="submit" ng-click="addUser(newUser)" ng-disabled="create_user.$invalid">
+		</form><br>
+		<a href='#/'>Already have an account? Sign in!</a>
+	</div>
+</body>
+</html>	
