@@ -6,17 +6,14 @@ myApp.factory('ReservationFactory', function($http) {
 
 	factory.getReservations = function(userID, callback) {
 		$http.post('/getReservations', {id: userID}).success(function (reservations) {
-			// console.log('we are inside the reservation factory', reservations);
 			callback(reservations);
 		});
 	  }
 
 	factory.cancelOrder = function(reservationID, callback) {
-		console.log(reservationID);
-		// $http.post('/removeQuestion', reservationID).success(function (removedQuestion) {
-		// 	questions.splice(questions.indexOf(reservationID), 1);
-		// 	callback(questions);
-		// });
+		$http.post('/cancelOrder', {id: reservationID}).success(function () {
+			callback();
+		});
 	}
 
 	  return factory;
