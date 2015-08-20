@@ -11,6 +11,9 @@ myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 		.when('/feed', {
 			templateUrl: 'partials/feed.html'
 		})
+		.when('/vendor', {
+			templateUrl: 'partials/vendor.html'
+		})
 
 	uiGmapGoogleMapApiProvider.configure({
 		v: '3.17',
