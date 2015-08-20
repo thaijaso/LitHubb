@@ -1,6 +1,6 @@
 <div ng-controller="VendorsController">
 	<div class="container">
-		<div class='row crumbs'><a href="#/">Dispensaries</a> > Green-Theory</div>
+		<div class='row crumbs'><a href="#/">Dispensaries</a> > <span ng-bind="name"></span></div>
 		<table class="table table-striped menu">
 			<thead>
 				<tr>
@@ -13,29 +13,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><a href="#/reserve">Headband OG</a></td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
+				<tr ng-repeat="strain in indicas">
+					<td><a href="#/reserve/{{ strain.vendor_id }}/{{ strain.strain_id }}">{{ strain.strain_name }}</a></td>
+					<td>${{ strain.price_gram }}</td>
+					<td>${{ strain.price_eigth }}</td>
+					<td>${{ strain.price_quarter }}</td>
+					<td>${{ strain.price_half }}</td>
+					<td>${{ strain.price_oz }}</td>
 				</tr>
 			</tbody>
 			<thead>
@@ -49,29 +33,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
+				<tr ng-repeat="strain in sativas">
+					<td><a href="#/reserve/{{ strain.vendor_id }}/{{ strain.strain_id }}">{{ strain.strain_name }}</a></td>
+					<td>${{ strain.price_gram }}</td>
+					<td>${{ strain.price_eigth }}</td>
+					<td>${{ strain.price_quarter }}</td>
+					<td>${{ strain.price_half }}</td>
+					<td>${{ strain.price_oz }}</td>
 				</tr>
 			</tbody>
 			<thead>
@@ -85,29 +53,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
+				<tr ng-repeat="strain in hybrids">
+					<td><a href="#/reserve/{{ strain.vendor_id }}/{{ strain.strain_id }}">{{ strain.strain_name }}</a></td>
+					<td>${{ strain.price_gram }}</td>
+					<td>${{ strain.price_eigth }}</td>
+					<td>${{ strain.price_quarter }}</td>
+					<td>${{ strain.price_half }}</td>
+					<td>${{ strain.price_oz }}</td>
 				</tr>
 			</tbody>
 		</table>
