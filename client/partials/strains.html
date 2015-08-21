@@ -1,5 +1,13 @@
 <div ng-controller="StrainsController">
 	<div class="container">
+		<br>
+		<form class="form-inline">
+	        <div class="form-group">
+	            <label >Search</label>
+	            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+	        </div>
+    	</form>
+    	<br>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -9,14 +17,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				
+				<tr ng-repeat="strain in strains | orderBy : name | filter:search">
+					<td>{{strain.name}}</td>
+					<td><img ng-src="{{strain.star_image}}"></td>
+					<td>{{strain.category}}</td>
+				</tr>
 			</tbody>
 		</table>
-
-
-
-
-
 
 		<ul class="pager">
 	    	<li class="previous"><a ng-click="prevPage()" href="#">&larr; Previous</a></li>
