@@ -2,36 +2,24 @@
 <div ng-controller="ReservationsController">
 	<div class='container'>
 		<h3>Feed</h3>
-		<table class="table table-striped table-bordered table-condensed table-responsive">
-			<tr>
-				<th>Name</th>
-				<th>Vendor</th>
-				<th>Strain</th>
-				<th>Grams purchased</th>
-				<th>Eigths purchased</th>
-				<th>Quarters purchased</th>
-				<th>Halves purchased</th>
-				<th>Ounces purchased</th>
-				<th>Quantity (grams)</th>
-				<th>Total ($)</th>
-				<th>Status</th>
-				<th>Action</th>
-			</tr>
-			<tr ng-repeat="reservation in feed_reservations">
-				<td >{{reservation.first_name}} {{reservation.last_name}}</td>
-				<td ng-bind="reservation.vendor"></td>
-				<td ng-bind="reservation.name"></td>
-				<td ng-bind="reservation.quantity_gram"></td>
-				<td ng-bind="reservation.quantity_eigth"></td>
-				<td ng-bind="reservation.quantity_quarter"></td>
-				<td ng-bind="reservation.quantity_half"></td>
-				<td ng-bind="reservation.quantity_oz"></td>
-				<td ng-bind="reservation.price_gram"></td>
-				<td>total</td>
-					<td ng-if="reservation.status == 0 ">Order not ready</td>
-					<td ng-if="reservation.status == 1 ">Ready for pickup</td>
-				<td><button type="button" class="btn btn-danger" ng-click="cancelOrder(reservation.id)">Cancel Order</button></td>
-		</table>
+		<div class ='row' ng-repeat="reservation in feed_reservations">
+			<h4>Your {{reservation.vendor}} reservation is ready...</h4>
+			<div class="col-sm-4 ">
+				<p ng-if="reservation.vendor == 'Green Theory'"><img src="assets/icons/green_theory.png"></p>
+				<p ng-if="reservation.vendor == 'BelMar Bellevue Marijuana Store'"><img src="assets/icons/michael.jpg" class="img-circle"></p>
+			</div>
+			<div class="col-sm-4">
+				<p><b>Strain:</b> {{reservation.name}}</p>
+				<p ng-if="reservation.status == 0 "><b>Status:</b> Order not ready</p>
+				<p ng-if="reservation.status == 1 "><b>Status:</b> Ready for pickup</p>
+			</div>
+			<div class="col-sm-4">
+				<p><b>Total:</b> $120</p>
+			</div>
+			<div class="col-sm-4">
+				<p><button type="button" class="btn btn-danger" ng-click="cancelOrder(reservation.id)">Cancel Order</button></p>
+			</div>
+		</div>>
 	</div>
 </div>
 
