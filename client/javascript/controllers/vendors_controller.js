@@ -1,4 +1,5 @@
 myApp.controller('VendorsController', function ($scope, VendorFactory, $location, $routeParams) {
+
 	VendorFactory.getMenu($routeParams.id, function (menu) {
 		$scope.indicas = [];
 		$scope.sativas = [];

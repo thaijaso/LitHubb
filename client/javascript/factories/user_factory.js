@@ -35,7 +35,7 @@ myApp.factory('UserFactory', function ($http) {
 	factory.addUser = function(newUser, callback) {
 		$http.post('/addUser', {first_name: newUser.first_name, last_name: newUser.last_name, email: newUser.email, password: newUser.password, created_at: Date.now()})
 		.success(function (userInfo) {
-			console.log(userInfo);
+			// console.log(userInfo);
 			callback(userInfo);
 		});
 	}

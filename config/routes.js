@@ -51,8 +51,14 @@ module.exports = function(app) {
 	});
 
 	app.get('/getItem/:vendorID/:strainID', function(req, res) {
-		// console.log('at routes: ', req.params.vendorID);
-		// console.log(req.params.strainID);
 		reservations.getItem(req, res);
-	})
+	});
+
+	app.post('/available', function(req, res) {
+		reservations.available(req, res);
+	});
+
+	app.post('/unavailable', function(req, res) {
+		reservations.unavailable(req, res);
+	});
 }

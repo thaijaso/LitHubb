@@ -15,15 +15,28 @@ myApp.factory('ReservationFactory', function($http) {
 		});
 	  }
 
+	factory.cancelOrder = function(reservationID, callback) {
+		$http.post('/cancelOrder', {id: reservationID}).success(function () {
+			callback();
+		});
+	}
+
+	factory.addOrder = function(newOrder, userID, callback) {
+		$http.post('/addOrder', {user_id: newOrder.user_id, vendor_id: newOrder.vendor_id, quantity_gram: newOrder.quantity_gram, quantity_eigth: newOrder.quantity_eigth, quantity_quarter: newOrder.quantity_quarter, quantity_half: newOrder.quantity_half, quantity_oz: newOrder.quantity_oz, created_at: Date.now(), updated_at: Date.now(), status: 0})
+		.success(function () {
+			callback();
+		});
+	}
+
 	factory.getAllReservations = function(callback) {
 		$http.get('/getAllReservations').success(function (allReservations) {
-			console.log(allReservations);
 			callback(allReservations);
 		});
 	  }
 
-	factory.cancelOrder = function(reservationID, callback) {
-		$http.post('/cancelOrder', {id: reservationID}).success(function () {
+	factory.available = function(reservationID, callback) {
+		console.log(reservationID);
+		$http.post('/available', {id: reservationID}).success(function () {
 			callback();
 		});
 	}
@@ -44,31 +57,18 @@ myApp.factory('ReservationFactory', function($http) {
 			newOrderAdd.updated_at = Date.now();
 			newOrderAdd.status = 0;
 		}
+		
 		$http.post('/addOrder', newOrderAdd).success(function() {
 			console.log('order successfully added!');
-			callback();
 		});
-		// $http.post('/addOrder', {user_id: newOrder.user_id, vendor_id: newOrder.vendor_id, quantity_gram: newOrder.quantity_gram, quantity_eigth: newOrder.quantity_eigth, quantity_quarter: newOrder.quantity_quarter, quantity_half: newOrder.quantity_half, quantity_oz: newOrder.quantity_oz, created_at: Date.now(), updated_at: Date.now(), status: 0}).success(function () {
-		// 	callback();
-		// });
 	}
 
-	  return factory;
-	});
+	factory.unavailable = function(reservationID, callback) {
+		console.log(reservationID);
+		$http.post('/unavailable', {id: reservationID}).success(function () {
+			callback();
+		});
+	}
 
-// 	getReservations = function(callback) {
-		// var reservation = {{_id: 1},
-		// 				  {name: Jason},
-		// 				  {reservations: [{_id: 1,
-		// 								   created_at: today,
-		// 								   vendor: green theory,
-		// 								   product: blue dream,
-		// 								   quantity: 2g,
-		// 								   total: 24,
-		// 								   status: 0
-		// 								  }]
-		// 				  }
-// 		};
-// 	}
-
-// 	return factory;
+	return factory;
+});
