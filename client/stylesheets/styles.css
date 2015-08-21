@@ -19,3 +19,24 @@
 	margin-left: 0px;
 	margin-right: 0px;
 }
+
+#reg {
+	background-image: url('/assets/images/landing.jpg');
+	color: #35DEA1;
+	opacity: ;	
+}
+	#reg button {
+		color: black;
+	}
+
+	#reg #first_name{
+		opacity: 0.6;
+		color: black;
+
+	}
+
+	#reg #last_name{
+		opacity: 0.8;
+		color: black;
+	}
+

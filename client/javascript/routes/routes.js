@@ -14,7 +14,7 @@ myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 		.when('/vendor/:id', {
 			templateUrl: 'partials/vendor.html'
 		})
-		.when('/reserve', {
+		.when('/reserve/:vendor_id/:strain_id', {
 			templateUrl: 'partials/reserve.html'
 		})
 		.when('/registration', {
