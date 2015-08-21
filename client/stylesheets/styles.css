@@ -130,5 +130,7 @@ a:link {
 
 /*styles for reservation page*/
 
-
+#strains_table {
+	margin-top: 100px;
+}
 
