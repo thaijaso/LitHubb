@@ -7,13 +7,6 @@ myApp.factory('ReservationFactory', function($http) {
 		});
 	  }
 
-	factory.getAllReservations = function(callback) {
-		$http.get('/getAllReservations').success(function (allReservations) {
-			console.log(allReservations);
-			callback(allReservations);
-		});
-	  }
-
 	factory.cancelOrder = function(reservationID, callback) {
 		$http.post('/cancelOrder', {id: reservationID}).success(function () {
 			callback();
@@ -23,6 +16,26 @@ myApp.factory('ReservationFactory', function($http) {
 	factory.addOrder = function(newOrder, userID, callback) {
 		$http.post('/addOrder', {user_id: newOrder.user_id, vendor_id: newOrder.vendor_id, quantity_gram: newOrder.quantity_gram, quantity_eigth: newOrder.quantity_eigth, quantity_quarter: newOrder.quantity_quarter, quantity_half: newOrder.quantity_half, quantity_oz: newOrder.quantity_oz, created_at: Date.now(), updated_at: Date.now(), status: 0})
 		.success(function () {
+			callback();
+		});
+	}
+
+	factory.getAllReservations = function(callback) {
+		$http.get('/getAllReservations').success(function (allReservations) {
+			callback(allReservations);
+		});
+	  }
+
+	factory.available = function(reservationID, callback) {
+		console.log(reservationID);
+		$http.post('/available', {id: reservationID}).success(function () {
+			callback();
+		});
+	}
+
+	factory.unavailable = function(reservationID, callback) {
+		console.log(reservationID);
+		$http.post('/unavailable', {id: reservationID}).success(function () {
 			callback();
 		});
 	}

@@ -6,13 +6,18 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 		});
 
 	ReservationFactory.getReservations(userID, function (reservations) {
-			$scope.reservations  = reservations;
+			$scope.feed_reservations  = reservations;
+		});
+
+	ReservationFactory.getAllReservations(function(allReservations){
+		console.log(allReservations);
+			$scope.allreservations  = allReservations;
 		});
 
 	$scope.cancelOrder = function(reservationID) {
 		ReservationFactory.cancelOrder(reservationID, function () {
 			ReservationFactory.getReservations(userID, function (reservations) {
-				$scope.reservations  = reservations;
+				$scope.feed_reservations  = reservations;
 			});
 		});
 	}
@@ -20,6 +25,22 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 	$scope.addOrder = function(newOrder, userID) {
 		ReservationFactory.addOrder(newOrder, function () {
 			$location.path('/feed');
+		});
+	}
+
+	$scope.available = function(reservationID) {
+		ReservationFactory.available(reservationID, function () {
+			ReservationFactory.getAllReservations(function(allReservations){
+				$scope.allreservations  = allReservations;
+			});
+		});
+	}
+
+	$scope.unavailable = function(reservationID) {
+		ReservationFactory.unavailable(reservationID, function () {
+			ReservationFactory.getAllReservations(function(allReservations){
+				$scope.allreservations  = allReservations;
+			});
 		});
 	}
 

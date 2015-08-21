@@ -1,4 +1,3 @@
-<title>Home</title>
 <div ng-controller="ReservationsController">
 	<div class='container'>
 		<h3>Feed</h3>
@@ -17,7 +16,7 @@
 				<th>Status</th>
 				<th>Action</th>
 			</tr>
-			<tr ng-repeat="reservation in feed_reservations">
+			<tr ng-repeat="reservation in allreservations">
 				<td >{{reservation.first_name}} {{reservation.last_name}}</td>
 				<td ng-bind="reservation.vendor"></td>
 				<td ng-bind="reservation.name"></td>
@@ -30,7 +29,10 @@
 				<td>total</td>
 					<td ng-if="reservation.status == 0 ">Order not ready</td>
 					<td ng-if="reservation.status == 1 ">Ready for pickup</td>
-				<td><button ng-click="cancelOrder(reservation.id)">Cancel Order</button></td>
+				<td>
+					<button ng-click="available(reservation.id)">Available</button>
+					<button ng-click="unavailable(reservation.id)">Unavailable</button>
+				</td>
 		</table>
 	</div>
 </div>

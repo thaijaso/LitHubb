@@ -2,7 +2,7 @@ myApp.factory('UserFactory', function ($http) {
 	var factory = {};
 	var userid;
 	if (sessionStorage.getItem('sessionID') != undefined) {
-		console.log(sessionStorage.getItem('sessionID'));
+		// console.log(sessionStorage.getItem('sessionID'));
 		userid = sessionStorage.getItem('sessionID');
 	}
 	
@@ -36,7 +36,7 @@ myApp.factory('UserFactory', function ($http) {
 	factory.addUser = function(newUser, callback) {
 		$http.post('/addUser', {first_name: newUser.first_name, last_name: newUser.last_name, email: newUser.email, password: newUser.password, created_at: Date.now()})
 		.success(function (userInfo) {
-			console.log(userInfo);
+			// console.log(userInfo);
 			callback(userInfo);
 		});
 	}

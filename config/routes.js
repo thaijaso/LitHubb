@@ -49,4 +49,12 @@ module.exports = function(app) {
 	app.post('/addOrder', function(req, res) {
 		reservations.add(req, res);
 	});
+
+	app.post('/available', function(req, res) {
+		reservations.available(req, res);
+	});
+
+	app.post('/unavailable', function(req, res) {
+		reservations.unavailable(req, res);
+	});
 }

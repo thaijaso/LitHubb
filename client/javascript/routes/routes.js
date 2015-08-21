@@ -23,6 +23,9 @@ myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 		.when('/vendor', {
 			templateUrl: 'partials/vendor.html'
 		})
+		.when('/vendors_dashboard', {
+			templateUrl: 'partials/vendors_dashboard.html'
+		})
 
 	uiGmapGoogleMapApiProvider.configure({
 		v: '3.17',
