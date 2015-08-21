@@ -45,7 +45,7 @@ myApp.factory('ReservationFactory', function($http) {
 		var newOrderAdd = {};
 		newOrderAdd.user_id = userID;
 		newOrderAdd.vendor_id = vendorID;
-		console.log(newOrder);
+
 		if (newOrder.unit == "grams") {
 			newOrderAdd.quantity_gram = newOrder.amount;
 			newOrderAdd.quantity_eigth = 0;
@@ -59,7 +59,7 @@ myApp.factory('ReservationFactory', function($http) {
 		}
 		
 		$http.post('/addOrder', newOrderAdd).success(function() {
-			console.log('order successfully added!');
+			callback();
 		});
 	}
 
