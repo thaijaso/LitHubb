@@ -2,6 +2,37 @@
 <div ng-controller="ReservationsController">
 	<div class='container'>
 		<h3>Feed</h3>
+		<table class="table table-striped table-bordered table-condensed table-responsive">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Vendor</th>
+					<th>Strain</th>
+					<th>Grams purchased</th>
+					<th>Eigths purchased</th>
+					<th>Quarters purchased</th>
+					<th>Halves purchased</th>
+					<th>Ounces purchased</th>
+					<th>Quantity (grams)</th>
+					<th>Total ($)</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody class = 'table-hover'>
+				<tr ng-repeat="reservation in reservations">
+					<td >{{reservation.first_name}} {{reservation.last_name}}</td>
+					<td ng-bind="reservation.vendor"></td>
+					<td ng-bind="reservation.name"></td>
+					<td ng-bind="reservation.quantity_gram"></td>
+					<td ng-bind="reservation.quantity_eigth"></td>
+					<td ng-bind="reservation.quantity_quarter"></td>
+					<td ng-bind="reservation.quantity_half"></td>
+					<td ng-bind="reservation.quantity_oz"></td>
+					<td ng-bind="reservation.price_gram"></td>
+					<td>total</td>
+					<td ng-bind="reservation.status"></td>
+				</tr>
+			</tbody>
 		<table class="table table-condensed">
 			<tr>
 				<th>Name</th>
@@ -34,5 +65,3 @@
 	</div>
 </div>
 
-<!-- 
-var reservations = [{id: 1, created_at: Date.now(), vendor: 'Green Theory', product: 'Blue Dream', quantity: 2, total: 20, status: 0}, {id: 2, name: 'Derferick', swag: 'below average'}]; -->

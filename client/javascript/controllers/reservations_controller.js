@@ -7,13 +7,14 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 
 	ReservationFactory.getReservations(userID, function (reservations) {
 			$scope.reservations  = reservations;
-			// console.log(reservations);
 		});
 	
 
 	$scope.cancelOrder = function(reservationID) {
-		ReservationFactory.cancelOrder(reservationID, function (reservations) {
-			$scope.reservations = reservations;
+		ReservationFactory.cancelOrder(reservationID, function () {
+			ReservationFactory.getReservations(userID, function (reservations) {
+				$scope.reservations  = reservations;
+			});
 		});
 	}
 
