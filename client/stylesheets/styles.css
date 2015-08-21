@@ -18,6 +18,7 @@
 .row {
 	margin-left: 0px;
 	margin-right: 0px;
+	padding-bottom: 30px;
 }
 
 #reg {
@@ -37,7 +38,7 @@
 	}
 
 	#reg h5{
-		color:red;
+		color:white;
 	}
 
 	#reg button {
@@ -65,5 +66,11 @@
 		color: black;
 	}
 
+.validation{
+	text-align: center;
+	margin-top: 50px;
+}
 	
-
+a:link {
+    text-decoration: none;
+}

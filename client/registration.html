@@ -20,10 +20,7 @@
         </div>
     	<div class= 'row'>
     		<div class= 'text-center'>
-      			<h3 class='col-sm-12'>Register</h3>
-                <!-- validations -->
-                <h5 ng-if="create_user.$invalid">All fields are required</h5>
-                <h5 ng-if="create_user.$invalid">Passwords must match</h5>
+      			<h2 class='col-sm-12'>Register</h2>
     		</div>
     	</div>
       	<form class='form-horizontal' role='form' name='create_user' novalidate>
@@ -73,6 +70,10 @@
                 </div>
             </div>
         </form>
+          <div class='validation'>
+                <h5 ng-if="create_user.$invalid">All fields are required</h5>
+                <h5 ng-if="create_user.$invalid">Passwords must match</h5>
+          </div>
     </div>
 </body>
 </html>
