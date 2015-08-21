@@ -30,7 +30,7 @@
 				<td>total</td>
 					<td ng-if="reservation.status == 0 ">Order not ready</td>
 					<td ng-if="reservation.status == 1 ">Ready for pickup</td>
-				<td><button ng-click="cancelOrder(reservation.id)">Cancel Order</button></td>
+				<td><button type="button" class="btn btn-danger" ng-click="cancelOrder(reservation.id)">Cancel Order</button></td>
 		</table>
 	</div>
 </div>

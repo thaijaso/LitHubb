@@ -1,6 +1,6 @@
 <div ng-controller="ReservationsController">
 	<div class='container'>
-		<h3>Feed</h3>
+		<h3>Vendor Dashboard</h3>
 		<table class="table table-striped table-bordered table-condensed table-responsive">
 			<tr>
 				<th>Name</th>
@@ -30,8 +30,8 @@
 					<td ng-if="reservation.status == 0 ">Order not ready</td>
 					<td ng-if="reservation.status == 1 ">Ready for pickup</td>
 				<td>
-					<button ng-click="available(reservation.id)">Available</button>
-					<button ng-click="unavailable(reservation.id)">Unavailable</button>
+					<button type="button" class="btn btn-success" ng-click="available(reservation.id)">Make Available</button>
+					<button type="button" class="btn btn-danger" ng-click="unavailable(reservation.id)">Not Yet Ready</button>
 				</td>
 		</table>
 	</div>
