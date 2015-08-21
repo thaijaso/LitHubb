@@ -1,9 +1,3 @@
-myApp.controller('VendorsController', function ($scope, VendorFactory, ReservationFactory, $location, $routeParams) {
-
-	ReservationFactory.getAllReservations(function(allReservations){
-			$scope.reservations  = allReservations;
-		});
-
 myApp.controller('VendorsController', function ($scope, VendorFactory, $location, $routeParams) {
 	VendorFactory.getMenu($routeParams.id, function (menu) {
 		$scope.indicas = [];

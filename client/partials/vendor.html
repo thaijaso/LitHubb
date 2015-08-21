@@ -1,38 +1,4 @@
-<title>Vendor Dashboard</title>
 <div ng-controller="VendorsController">
-	<div class='container'>
-		<h3>Vendor Dashboard</h3>
-		<table class="table table-condensed">
-			<tr>
-				<th>Name</th>
-				<th>Vendor</th>
-				<th>Strain</th>
-				<th>Grams purchased</th>
-				<th>Eigths purchased</th>
-				<th>Quarters purchased</th>
-				<th>Halves purchased</th>
-				<th>Ounces purchased</th>
-				<th>Quantity (grams)</th>
-				<th>Total ($)</th>
-				<th>Status</th>
-				<th>Action</th>
-			</tr>
-			<tr ng-repeat="reservation in reservations">
-				<td >{{reservation.first_name}} {{reservation.last_name}}</td>
-				<td ng-bind="reservation.vendor"></td>
-				<td ng-bind="reservation.name"></td>
-				<td ng-bind="reservation.quantity_gram"></td>
-				<td ng-bind="reservation.quantity_eigth"></td>
-				<td ng-bind="reservation.quantity_quarter"></td>
-				<td ng-bind="reservation.quantity_half"></td>
-				<td ng-bind="reservation.quantity_oz"></td>
-				<td ng-bind="reservation.price_gram"></td>
-				<td>total</td>
-				<td ng-bind="reservation.status"></td>
-				<td>
-					<button ng-click="cancelOrder(reservation.id)">Ready For Pickup</button>
-					<button ng-click="cancelOrder(reservation.id)">Not Yet Read</button>
-				</td>
 	<div class="container">
 		<div class='row crumbs'><a href="#/">Dispensaries</a> > <span ng-bind="name"></span></div>
 		<table class="table table-striped menu">
