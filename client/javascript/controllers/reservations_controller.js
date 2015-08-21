@@ -8,6 +8,7 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 		$scope.desc = item[0].description;
 		$scope.price_gram = item[0].price_gram;
 		$scope.category = item[0].category;
+		$scope.strainID = item[0].strain_id;
 	});
 
 	UserFactory.returnUser(function(data){
@@ -30,8 +31,8 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 		});
 	}
 
-	$scope.addOrder = function(newOrder, vendorID) {
-		ReservationFactory.addOrder(newOrder, sessionStorage.getItem('sessionID'), vendorID, function () {
+	$scope.addOrder = function(newOrder, vendorID, strainID) {
+		ReservationFactory.addOrder(newOrder, sessionStorage.getItem('sessionID'), vendorID, strainID, function () {
 			$location.path('/feed');
 		});
 	}
