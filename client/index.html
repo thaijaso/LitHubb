@@ -4,6 +4,7 @@
 	<title>LitHubb | Virtual Marketplace</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./node_modules/angular-loading-bar/build/loading-bar.css"> -->
     <!-- angular and jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
@@ -26,6 +27,8 @@
     <script type="text/javascript" src="/javascript/map/lodash.js"></script>
     <script type="text/javascript" src="/javascript/map/angular-google-maps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDrosyiujRwCaCxmqPEpxqxL2y9TDA1pAc"></script>
+    <!-- angular loading bar -->
+    <!-- // <script type="text/javascript" src="./node_modules/angular-loading-bar/build/loading-bar.min.js"></script> -->
 </head>
 <body ng-controller="UsersController">
 	<nav class="navbar navbar-default">
@@ -55,7 +58,7 @@
     				<li ng-if="sessionID" class="dropdown">
     					<a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ sessionName }} <span class="caret"></span></a>
     					<ul class="dropdown-menu">
-    						<li><a href="#">Profile</a></li>
+    						<li><a href="#/vendors_dashboard">Profile</a></li>
     						<li><a href="#">Smokydex</a></li>
                             <li><a href="#" ng-click="logout()">Sign out</a></li>
     					</ul>
@@ -73,9 +76,9 @@
                                         <label for="exampleInputPassword1">Password</label>
                                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="user.password">
                                     </div>
-                                    <button type="submit" class="btn btn-primary pull-right" ng-click="loginUser(user)">Login</button>
+                                    <button type="submit" class="btn btn-success pull-right" ng-click="loginUser(user)">Login</button>
                                 </form>
-                                <form><button type="submit" class="btn btn-default"><a href='/registration.html'>Sign up</a></form>
+                                <form><a href='#/registration'><button type="button" class="btn btn-primary">Sign up</button></a></form>
                             </li>  
                         </ul>
                     </li>
