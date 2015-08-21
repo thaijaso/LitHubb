@@ -1,115 +1,38 @@
+<title>Vendor Dashboard</title>
 <div ng-controller="VendorsController">
-	<div class="container">
-		<div class='row crumbs'><a href="#/">Dispensaries</a> > Green-Theory</div>
-		<table class="table table-striped menu">
-			<thead>
-				<tr>
-					<th>Indica</th>
-					<th>1 g</th>
-					<th>1/8 oz</th>
-					<th>1/4 oz</th>
-					<th>1/2 oz</th>
-					<th>1 oz</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="#/reserve">Headband OG</a></td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-			</tbody>
-			<thead>
-				<tr>
-					<th>Sativa</th>
-					<th>1 g</th>
-					<th>1/8 oz</th>
-					<th>1/4 oz</th>
-					<th>1/2 oz</th>
-					<th>1 oz</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-			</tbody>
-			<thead>
-				<tr>
-					<th>Hybrid</th>
-					<th>1 g</th>
-					<th>1/8 oz</th>
-					<th>1/4 oz</th>
-					<th>1/2 oz</th>
-					<th>1 oz</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-				<tr>
-					<td>Headband OG</td>
-					<td>$10</td>
-					<td>$35</td>
-					<td>$70</td>
-					<td>$140</td>
-					<td>$280</td>
-				</tr>
-			</tbody>
+	<div class='container'>
+		<h3>Vendor Dashboard</h3>
+		<table class="table table-condensed">
+			<tr>
+				<th>Name</th>
+				<th>Vendor</th>
+				<th>Strain</th>
+				<th>Grams purchased</th>
+				<th>Eigths purchased</th>
+				<th>Quarters purchased</th>
+				<th>Halves purchased</th>
+				<th>Ounces purchased</th>
+				<th>Quantity (grams)</th>
+				<th>Total ($)</th>
+				<th>Status</th>
+				<th>Action</th>
+			</tr>
+			<tr ng-repeat="reservation in reservations">
+				<td >{{reservation.first_name}} {{reservation.last_name}}</td>
+				<td ng-bind="reservation.vendor"></td>
+				<td ng-bind="reservation.name"></td>
+				<td ng-bind="reservation.quantity_gram"></td>
+				<td ng-bind="reservation.quantity_eigth"></td>
+				<td ng-bind="reservation.quantity_quarter"></td>
+				<td ng-bind="reservation.quantity_half"></td>
+				<td ng-bind="reservation.quantity_oz"></td>
+				<td ng-bind="reservation.price_gram"></td>
+				<td>total</td>
+				<td ng-bind="reservation.status"></td>
+				<td>
+					<button ng-click="cancelOrder(reservation.id)">Ready For Pickup</button>
+					<button ng-click="cancelOrder(reservation.id)">Not Yet Read</button>
+				</td>
 		</table>
 	</div>
 </div>

@@ -23,7 +23,6 @@ module.exports = (function() {
 		},
 
 		cancel: function(req, res) {
-			// console.log(req.body);
 			connection.query("DELETE FROM reservations WHERE reservations.id = " + "'" + req.body.id + "'",
 			function(error, reservations, fields) {
 				if (error) {
@@ -32,7 +31,29 @@ module.exports = (function() {
 					res.json({});
 				}
 			});
-		}	
+		},
+
+		add: function(req, res) {
+			var post = {user_id: req.body.user_id, vendor_id: req.body.vendor_id, quantity_gram: req.body.quantity_gram, quantity_eigth: req.body.quantity_eigth, quantity_quarter: req.body.quantity_quarter, quantity_half: req.body.quantity_half, quantity_oz: req.body.quantity_oz, created_at: req.body.created_at, updated_at: req.body.created_at, status: 0};
+			connection.query("INSERT INTO reservations SET ?", post, function(error, reservations, fields) {
+				if (error) {
+					console.log(error);
+				} else {
+					res.json({});
+				}
+			});
+		},
+
+		getAll: function(req, res) {
+			connection.query("SELECT * FROM users", function(error, reservations, fields) {
+				if (error) {
+					console.log(error);
+				} else {
+					console.log(reservations);
+					res.json(reservations);
+				}
+			});
+		},
 
 	//write next method here
 	}

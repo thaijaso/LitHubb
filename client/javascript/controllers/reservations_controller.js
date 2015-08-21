@@ -8,13 +8,18 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 	ReservationFactory.getReservations(userID, function (reservations) {
 			$scope.reservations  = reservations;
 		});
-	
 
 	$scope.cancelOrder = function(reservationID) {
 		ReservationFactory.cancelOrder(reservationID, function () {
 			ReservationFactory.getReservations(userID, function (reservations) {
 				$scope.reservations  = reservations;
 			});
+		});
+	}
+
+	$scope.addOrder = function(newOrder, userID) {
+		ReservationFactory.addOrder(newOrder, function () {
+			$location.path('/feed');
 		});
 	}
 
@@ -39,13 +44,7 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 	// 	});
 	// }
 
-	// $scope.addAnswer = function() {
-	// 	QuestionFactory.addAnswer($scope.newQuestion, $routeParams.id, function (questions) {
-	// 		$scope.questions = questions;
-	// 		$scope.newQuestion = {};
-	// 		$location.path('/home.html');
-	// 	})
-	// }
+
 
 	// $scope.likeAnswer = function(questionId) {
 	// 	QuestionFactory.likeAnswer(questionId, function (updatedQuestion) {

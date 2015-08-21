@@ -20,6 +20,9 @@ myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 		.when('/registration', {
 			templateUrl: 'partials/registration.html'
 		})
+		.when('/vendor', {
+			templateUrl: 'partials/vendor.html'
+		})
 
 	uiGmapGoogleMapApiProvider.configure({
 		v: '3.17',

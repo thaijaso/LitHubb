@@ -3,6 +3,7 @@ var users = require('./../server/controllers/users_controller');
 var reservations = require('./../server/controllers/reservations_controller');
 
 module.exports = function(app) {
+	
 	app.get('/', function(req, res) {
 		res.render('index');
 	});
@@ -20,9 +21,14 @@ module.exports = function(app) {
 	app.post('/getReservations', function(req, res) {
 		reservations.retrieve(req, res);
 	});
+	app.get('/getAllReservations', function(req, res) {
+		reservations.getAll(req, res);
+	});
 	app.post('/cancelOrder', function(req, res) {
-		// console.log(req.body);
 		reservations.cancel(req, res);
+	});
+	app.post('/addOrder', function(req, res) {
+		reservations.add(req, res);
 	});
 
 }
