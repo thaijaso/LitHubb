@@ -50,6 +50,10 @@ module.exports = function(app) {
 		reservations.add(req, res);
 	});
 
+	app.get('/getItem/:vendorID/:strainID', function(req, res) {
+		reservations.getItem(req, res);
+	});
+
 	app.post('/available', function(req, res) {
 		reservations.available(req, res);
 	});

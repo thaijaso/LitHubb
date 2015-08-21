@@ -66,6 +66,7 @@
 		color: black;
 	}
 
+<<<<<<< HEAD
 .validation{
 	text-align: center;
 	margin-top: 50px;
@@ -74,3 +75,17 @@
 a:link {
     text-decoration: none;
 }
+=======
+/*styles for reservation page*/
+#reserv_btn {
+	margin-top: 20px;
+
+}
+
+#desc {
+	height: 200px;
+	overflow: scroll;
+}	
+
+/*styles for reservation page*/
+>>>>>>> 5413bbd0b9b726cc6399566113c143d589acb7f0
