@@ -49,4 +49,10 @@ module.exports = function(app) {
 	app.post('/addOrder', function(req, res) {
 		reservations.add(req, res);
 	});
+
+	app.get('/getItem/:vendorID/:strainID', function(req, res) {
+		// console.log('at routes: ', req.params.vendorID);
+		// console.log(req.params.strainID);
+		reservations.getItem(req, res);
+	})
 }

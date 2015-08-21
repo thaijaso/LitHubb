@@ -65,5 +65,15 @@
 		color: black;
 	}
 
-	
+/*styles for reservation page*/
+#reserv_btn {
+	margin-top: 20px;
 
+}
+
+#desc {
+	height: 200px;
+	overflow: scroll;
+}	
+
+/*styles for reservation page*/

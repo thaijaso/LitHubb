@@ -2,7 +2,6 @@ myApp.factory('UserFactory', function ($http) {
 	var factory = {};
 	var userid;
 	if (sessionStorage.getItem('sessionID') != undefined) {
-		console.log(sessionStorage.getItem('sessionID'));
 		userid = sessionStorage.getItem('sessionID');
 	}
 	
