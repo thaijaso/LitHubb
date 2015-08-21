@@ -59,7 +59,7 @@ myApp.factory('ReservationFactory', function($http) {
 		}
 		
 		$http.post('/addOrder', newOrderAdd).success(function() {
-			console.log('order successfully added!');
+			callback();
 		});
 	}
 

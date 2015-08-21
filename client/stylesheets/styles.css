@@ -21,6 +21,12 @@
 	padding-bottom: 30px;
 }
 
+#footer {
+	position: absolute;
+	bottom: 0px;
+}
+
+/*styling for registration*/
 #reg {
 	background-image: url('/assets/images/landing.jpg');
 	color: #35DEA1;
@@ -66,6 +72,7 @@
 		color: black;
 	}
 
+/*styling for registration*/
 
 .validation{
 	text-align: center;
@@ -88,4 +95,6 @@ a:link {
 }	
 
 /*styles for reservation page*/
+
+
 

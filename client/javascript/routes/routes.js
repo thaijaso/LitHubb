@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'uiGmapgoogle-maps']);
+var myApp = angular.module('myApp', ['ngRoute', 'uiGmapgoogle-maps', 'angular-loading-bar']);
 
 myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 	$routeProvider
@@ -31,5 +31,8 @@ myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 		v: '3.17',
 		libraries: 'weather, geometry, visualization'
 	});
-
 });
+
+myApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+}]);
