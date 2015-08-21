@@ -2,7 +2,7 @@
 <div ng-controller="ReservationsController">
 	<div class='container'>
 		<h3>Feed</h3>
-		<div class ='row' ng-repeat="reservation in feed_reservations">
+		<div class ='row feedbox' ng-repeat="reservation in feed_reservations">
 			<h4>Your {{reservation.vendor}} reservation is ready...</h4>
 			<div class="col-sm-4 ">
 				<p ng-if="reservation.vendor == 'Green Theory'"><img src="assets/icons/green_theory.png"></p>
