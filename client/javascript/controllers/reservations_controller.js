@@ -19,7 +19,6 @@ myApp.controller('ReservationsController', function ($scope, $location, $routePa
 		});
 
 	ReservationFactory.getAllReservations(function(allReservations){
-		console.log(allReservations);
 			$scope.allreservations  = allReservations;
 		});
 
