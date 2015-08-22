@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'uiGmapgoogle-maps', 'angular-loading-bar']);
+var myApp = angular.module('myApp', ['ngRoute', 'uiGmapgoogle-maps', 'angular-loading-bar', 'ngSanitize']);
 
 myApp.config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
 	$routeProvider

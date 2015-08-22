@@ -31,8 +31,7 @@
 				<div class='row col-md-12'>
 					<h4><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Total: 25</h4>
 				</div>
-				<div id="desc" class='row col-md-12'>
-					{{ desc }}
+				<div id="desc" class='row col-md-12' ng-bind-html="desc">
 				</div>
 				<div class='col-md-12'><button id="reserv_btn" type="button" class="btn btn-success btn-lg btn-block" ng-click="addOrder(newResv, vendorID, strainID)">Reserve</button></div>	
 			</div>
