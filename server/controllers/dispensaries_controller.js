@@ -12,6 +12,7 @@ module.exports = (function() {
 	return {
 		get: function(req, res) {
 			connection.query('SELECT * FROM vendors', function(error, results) {
+				console.log(results);
 				res.json(results);
 			});
 		}	
