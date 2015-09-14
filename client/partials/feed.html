@@ -1,4 +1,3 @@
-<title>Home</title>
 <div ng-controller="ReservationsController">
 	<div class='container'>
 		<h3>Feed</h3>
@@ -7,6 +6,7 @@
 			<div class="col-sm-4 ">
 				<p ng-if="reservation.vendor == 'Green Theory'"><img src="assets/icons/green_theory.png"></p>
 				<p ng-if="reservation.vendor == 'BelMar Bellevue Marijuana Store'"><img src="assets/icons/michael.jpg" class="img-circle"></p>
+				<p ng-if="reservation.vendor == 'Uncle Ike's"><img src="assets/icons/ike.jpg"></p>
 			</div>
 			<div class="col-sm-4">
 				<p><b>Strain:</b> {{reservation.name}}</p>

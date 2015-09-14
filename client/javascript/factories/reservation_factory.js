@@ -21,13 +21,6 @@ myApp.factory('ReservationFactory', function($http) {
 		});
 	}
 
-	factory.addOrder = function(newOrder, userID, callback) {
-		$http.post('/addOrder', {user_id: newOrder.user_id, vendor_id: newOrder.vendor_id, quantity_gram: newOrder.quantity_gram, quantity_eigth: newOrder.quantity_eigth, quantity_quarter: newOrder.quantity_quarter, quantity_half: newOrder.quantity_half, quantity_oz: newOrder.quantity_oz, created_at: Date.now(), updated_at: Date.now(), status: 0})
-		.success(function () {
-			callback();
-		});
-	}
-
 	factory.getAllReservations = function(callback) {
 		$http.get('/getAllReservations').success(function (allReservations) {
 			callback(allReservations);
@@ -41,7 +34,7 @@ myApp.factory('ReservationFactory', function($http) {
 		});
 	}
 
-	factory.addOrder = function(newOrder, userID, vendorID, callback) {
+	factory.addOrder = function(newOrder, userID, vendorID, strainID, callback) {
 		var newOrderAdd = {};
 		newOrderAdd.user_id = userID;
 		newOrderAdd.vendor_id = vendorID;
@@ -56,6 +49,7 @@ myApp.factory('ReservationFactory', function($http) {
 			newOrderAdd.created_at = Date.now();
 			newOrderAdd.updated_at = Date.now();
 			newOrderAdd.status = 0;
+			newOrderAdd.strain_id = strainID;
 		}
 		
 		$http.post('/addOrder', newOrderAdd).success(function() {
