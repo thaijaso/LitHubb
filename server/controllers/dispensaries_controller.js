@@ -11,8 +11,7 @@ connection.connect();
 module.exports = (function() {
 	return {
 		get: function(req, res) {
-			connection.query('SELECT * FROM vendors', function(error, results) {
-				console.log(results);
+			connection.query('SELECT * FROM greencommerce.officialvendors WHERE PrivilegeStatus = "ACTIVE (ISSUED)"', function(error, results) {
 				res.json(results);
 			});
 		}	

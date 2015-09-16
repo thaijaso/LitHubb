@@ -3,6 +3,7 @@ var users = require('./../server/controllers/users_controller');
 var reservations = require('./../server/controllers/reservations_controller');
 var vendors = require('./../server/controllers/vendors_controller');
 var dispensaries = require('./../server/controllers/dispensaries_controller');
+// var session = require('express-session');
 
 module.exports = function(app) {
 	
@@ -16,9 +17,27 @@ module.exports = function(app) {
 
 	app.post('/loginUser', function(req, res) {
 		users.find(req, res);
+		console.log(req.body, "scdli")
+		// session is for iOS users, though it shouldn't cause a problem for web users
+		req.session.user = req.body.email;
 	});
+	// This is a logout function for iOS users who must use express session
+	app.post('/logoutUser', function(req, res){
+		req.session.destroy()
+	})
+	// This is a function to check which user is logged in. For now this is only used for iOS.
+	app.get('/currentUser', function(req, res) {
+
+		console.log("heeeere in get user")
+		var jsonObject = {
+			email: req.session.user,
+			id: req.session.id
+		}
+		res.json(jsonObject);
+	})
 	
 	app.post('/addUser', function(req, res) {
+		console.log(req.body)
 		users.add(req, res);
 	});
 

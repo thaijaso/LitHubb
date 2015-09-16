@@ -11,11 +11,13 @@ connection.connect();
 module.exports = (function() {
 	return {
 		find: function(req, res) {
+			console.log(req.body);
 			connection.query("SELECT * FROM users WHERE users.email = " + "'" + req.body.email + "'" + " AND users.password = " + "'" + req.body.password + "'", function(error, user, fields) {
 				if (error) {
 					console.log(error);
 				} else {
-					console.log(user);
+					console.log(user, "user");
+					req.session.id = user.id
 					res.json(user);
 				}
 			});
@@ -26,12 +28,13 @@ module.exports = (function() {
 
 		add: function(req, res) { 
 			// console.log(req.body.created_at);
-			var post = {first_name: req.body.first_name, last_name: req.body.last_name, email: req.body.email, password: req.body.password, created_at: req.body.created_at, updated_at: req.body.created_at};
-			connection.query("INSERT INTO users SET ?", post, function(error, user, fields) {
+			var post = {first_name: req.body.first_name, last_name: req.body.last_name, email: req.body.email, password: req.body.password, created_at: Date.now(), updated_at: Date.now(), phone: req.body.phone};
+			console.log(post);
+			connection.query("INSERT INTO users SET ?", post, function(error, results) {
 				if (error) {
 					console.log(error);
 				} else {
-					res.json(user);
+					res.json(results);
 				}
 			});
 		}	
