@@ -3,7 +3,10 @@ var users = require('./../server/controllers/users_controller');
 var reservations = require('./../server/controllers/reservations_controller');
 var vendors = require('./../server/controllers/vendors_controller');
 var dispensaries = require('./../server/controllers/dispensaries_controller');
+
 // var session = require('express-session');
+
+var backend = require('./../server/controllers/backend_controller');
 
 module.exports = function(app) {
 	
@@ -79,5 +82,11 @@ module.exports = function(app) {
 
 	app.post('/unavailable', function(req, res) {
 		reservations.unavailable(req, res);
+	});
+		app.get('/dispensaries', function(req, res) {
+		dispensaries.get(req, res);
+	});
+	app.get('/backend', function(req, res) {
+		backend.get(req, res);
 	});
 }
