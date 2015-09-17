@@ -86,7 +86,4 @@ module.exports = function(app) {
 		app.get('/dispensaries', function(req, res) {
 		dispensaries.get(req, res);
 	});
-	app.get('/backend', function(req, res) {
-		backend.get(req, res);
-	});
 }
