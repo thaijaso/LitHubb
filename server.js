@@ -5,6 +5,7 @@ var mysql = require('mysql');
 var session = require('express-session');
 
 var app = express();
+app.use(bodyParser.urlencoded());
 app.use(session({secret: '123'}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client')));

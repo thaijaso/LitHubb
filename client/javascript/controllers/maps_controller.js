@@ -42,7 +42,7 @@ myApp.controller('MapsController', function ($scope, MapFactory, $location, $rou
 	// 		templateParameter: {},
 	// 		isIconVisibleOnClick: 'TRUE',
 	// 		closeClick: function() {
-	// 			alert('close click');
+	// 			alert('close click');f
 	// 		}
 	// 	}
 	// ];
