@@ -6,8 +6,6 @@ var dispensaries = require('./../server/controllers/dispensaries_controller');
 
 // var session = require('express-session');
 
-var backend = require('./../server/controllers/backend_controller');
-
 module.exports = function(app) {
 	
 	app.get('/', function(req, res) {
