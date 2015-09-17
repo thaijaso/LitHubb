@@ -16,8 +16,10 @@ module.exports = (function() {
 				if (error) {
 					console.log(error);
 				} else {
-					console.log(user, "user");
-					req.session.id = user.id
+					// this is for iOS users
+					console.log(user[0], "user"); 
+					req.session.database_id = user[0].id
+					req.session.email = user[0].email
 					res.json(user);
 				}
 			});
