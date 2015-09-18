@@ -11,16 +11,28 @@ connection.connect();
 module.exports = (function() {
 	return {
 		find: function(req, res) {
-			console.log(req.body);
+			// ad hoc solution for empty longin attempts from iOS devices. DELETE THIS IF/ELSE STATEMENT ONCE VALIDATION IS WORKING
+			if (req.body.email == '') {
+				req.body.email == 'invalidemail298'
+				req.body.password == '239875098324750'
+			}
+
 			connection.query("SELECT * FROM users WHERE users.email = " + "'" + req.body.email + "'" + " AND users.password = " + "'" + req.body.password + "'", function(error, user, fields) {
 				if (error) {
 					console.log(error);
+					res.json(error);
 				} else {
 					// this is for iOS users
-					console.log(user[0], "user"); 
-					req.session.database_id = user[0].id
-					req.session.email = user[0].email
-					res.json(user);
+					if (typeof user[0] !== 'undefined' ) {
+						console.log(typeof user)
+						console.log('valid login!!')
+						req.session.database_id = user[0].id
+						req.session.email = user[0].email
+						res.json(user)
+					} else {
+						// again, this error stuff is for iOS. The iOS app will crash if it sends that request and gets nil back. it needs a value.
+						res.json("error");
+						}
 				}
 			});
 		},	

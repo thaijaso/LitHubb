@@ -11,7 +11,7 @@ connection.connect();
 module.exports = (function() {
 	return {
 		get: function(req, res) {
-			connection.query("SELECT * FROM greencommerce.officialvendors JOIN vendors ON vendors.address = officialvendors.address WHERE officialvendors.PrivilegeStatus = 'Active (Issued)'", function(error, results) {
+			connection.query("SELECT * FROM greencommerce.vendors WHERE PrivilegeStatus = 'Active (ISSUED)'", function(error, results) {
 				res.json(results);
 			});
 		}	

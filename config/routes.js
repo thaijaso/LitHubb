@@ -40,7 +40,7 @@ module.exports = function(app) {
 	
 	app.post('/addUser', function(req, res) {
 		console.log(req.body)
-		users.add(req, res);
+		// users.add(req, res);
 	});
 
 	app.post('/getReservations', function(req, res) {
@@ -88,5 +88,6 @@ module.exports = function(app) {
 	});
 	app.get('/backend', function(req, res) {
 		backend.get(req, res);
+		console.log("backend error")
 	});
 }

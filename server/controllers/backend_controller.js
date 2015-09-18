@@ -45,11 +45,11 @@ module.exports = (function() {
 		get: function(req, res) {
 			const lngDistancePerDegreeAtEquator = 69.172
 			const latDistancePerDegreeAtEquator = 69.08558338297732
-			// var fromLat = 47.609812;
-			// var fromLng = -122.196568;
-			var fromLat = req.query.lat;
-			var fromLng = req.query.lng;
-			if (typeof req.query.radius != undefined){
+			var fromLat = 47.609812;
+			var fromLng = -122.196568;
+			//var fromLat = req.query.lat;
+			//var fromLng = req.query.lng;
+			if (typeof req.query.radius != 'undefined'){
 				var maxRadius = req.query.radius;
 			} else {
 				var maxRadius = 5;
