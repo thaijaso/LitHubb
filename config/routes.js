@@ -6,8 +6,6 @@ var dispensaries = require('./../server/controllers/dispensaries_controller');
 
 // var session = require('express-session');
 
-var backend = require('./../server/controllers/backend_controller');
-
 module.exports = function(app) {
 	
 	app.get('/', function(req, res) {
@@ -19,6 +17,7 @@ module.exports = function(app) {
 	});
 
 	app.post('/loginUser', function(req, res) {
+		console.log('login sdfsdfdsljdslfkj', req.body)
 		users.find(req, res);
 		// session is for iOS users, though it shouldn't cause a problem for web users
 	});
@@ -28,23 +27,25 @@ module.exports = function(app) {
 	})
 	// This is a function to check which user is logged in. For now this is only used for iOS.
 	app.get('/currentUser', function(req, res) {
-
-		console.log("heeeere in get user")
 		var jsonObject = {
 			email: req.session.email,
 			id: req.session.database_id
 		}
 		console.log(jsonObject.id);
-		res.json(jsonObject);
+		res.json(jsonObject)
 	})
 	
 	app.post('/addUser', function(req, res) {
+		console.log(req.body, "adding user")
+		users.add(req, res)
+	});
+// This is for the 'ajax-like' email is unique validation in iOS
+	app.post('/findUser', function(req, res) {
 		console.log(req.body)
-		// users.add(req, res);
+		users.findOne(req,res)
 	});
 
 	app.post('/getReservations', function(req, res) {
-		console.log(req.body, "love")
 		reservations.retrieve(req, res);
 	});
 
@@ -69,7 +70,8 @@ module.exports = function(app) {
 	});
 
 	app.post('/addOrder', function(req, res) {
-		reservations.add(req, res);
+		console.log(req.body)
+		reservations.add(req, res)
 	});
 
 	app.get('/getItem/:vendorID/:strainID', function(req, res) {
@@ -83,11 +85,5 @@ module.exports = function(app) {
 	app.post('/unavailable', function(req, res) {
 		reservations.unavailable(req, res);
 	});
-		app.get('/dispensaries', function(req, res) {
-		dispensaries.get(req, res);
-	});
-	app.get('/backend', function(req, res) {
-		backend.get(req, res);
-		console.log("backend error")
-	});
+
 }
