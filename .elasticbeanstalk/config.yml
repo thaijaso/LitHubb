@@ -1,0 +1,10 @@
+branch-defaults:
+  master:
+    environment: lithubb-dev
+global:
+  application_name: lithubb
+  default_ec2_keyname: null
+  default_platform: Node.js
+  default_region: us-west-2
+  profile: eb-cli
+  sc: git

@@ -3,8 +3,7 @@ var connection = mysql.createConnection({
   	host : 'localhost',
   	user : 'root',
   	password : 'root',
-  	database : 'greencommerce',
-  	debug: true
+  	database : 'greencommerce'
 });
 
 connection.connect();
