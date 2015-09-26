@@ -4,7 +4,7 @@ var reservations = require('./../server/controllers/reservations_controller');
 var vendors = require('./../server/controllers/vendors_controller');
 var dispensaries = require('./../server/controllers/dispensaries_controller');
 
-// var session = require('express-session');
+var session = require('express-session');
 
 module.exports = function(app) {
 	
@@ -17,9 +17,10 @@ module.exports = function(app) {
 	});
 
 	app.post('/loginUser', function(req, res) {
-		console.log('login sdfsdfdsljdslfkj', req.body)
+		console.log('login sdfsdfdsljdslfkj')
 		users.find(req, res);
-		// session is for iOS users, though it shouldn't cause a problem for web users
+		//setting the req session data
+		// req.session.email = users[0].email
 	});
 	// This is a logout function for iOS users who must use express session
 	app.post('/logoutUser', function(req, res){
@@ -29,9 +30,9 @@ module.exports = function(app) {
 	app.get('/currentUser', function(req, res) {
 		var jsonObject = {
 			email: req.session.email,
-			id: req.session.database_id
+			id: req.session.user_id
 		}
-		console.log(jsonObject.id);
+		console.log('routes session var: ', req.session);
 		res.json(jsonObject)
 	})
 	

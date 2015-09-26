@@ -1,10 +1,9 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  	host : 'localhost',
+  	host : 'greencommerce.crmnsirkdajw.us-west-2.rds.amazonaws.com',
   	user : 'root',
-  	password : 'root',
-  	database : 'greencommerce',
-  	debug: false
+  	password : 'greencommerce',
+  	database : 'greencommerce'
 });
 
 var http = require('https');
