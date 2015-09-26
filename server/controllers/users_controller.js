@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  	host : 'aa6j9v09e0eau2.crmnsirkdajw.us-west-2.rds.amazonaws.com',
+  	host : 'greencommerce.crmnsirkdajw.us-west-2.rds.amazonaws.com',
   	user : 'root',
   	password : 'greencommerce',
   	port : '3306'
