@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
   	host : 'greencommerce.crmnsirkdajw.us-west-2.rds.amazonaws.com',
   	user : 'root',
   	password : 'greencommerce',
-  	port : '8888'
+  	port : '3306'
 });
 
 var http = require('https');
