@@ -1,10 +1,9 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  	host : 'greencommerce.crmnsirkdajw.us-west-2.rds.amazonaws.com',
-  	user : 'root',
-  	password : 'greencommerce',
-  	port : '3306',
-  	database : 'greencommerce'
+  	host : 'us-cdbr-iron-east-03.cleardb.net',
+  	user : 'bb08a4822ce4b1',
+  	password : '10f0179b',
+  	database: 'heroku_59370a6610ff7e4?reconnect=true'
 });
 
 connection.connect();
