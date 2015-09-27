@@ -1,4 +1,6 @@
 var mysql = require('mysql');
+var http = require('https');
+
 var connection = mysql.createConnection({
   	host : 'us-cdbr-iron-east-03.cleardb.net',
   	user : 'bb08a4822ce4b1',
@@ -6,16 +8,13 @@ var connection = mysql.createConnection({
   	database: 'heroku_59370a6610ff7e4'
 });
 
-var http = require('https');
-
-
 function generateUrl(address) {
 	var apiKey = 'AIzaSyC0qewgbUrXxtjibRi_GijwTgtfOXtDxeg';
 	var url = 'https://maps.googleapis.com/maps/api/geocode/json?';
 	return url + 'key=' + apiKey + '&' + 'address=' + address;
 }
 
-function getGeocode(address,resid, success, error) {
+function getGeocode(address, resid, success, error) {
 	var link = generateUrl(address)
 	//console.log("link " + link);
 	var data = '';
