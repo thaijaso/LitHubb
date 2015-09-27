@@ -37,7 +37,7 @@ function getGeocode(address,resid, success, error) {
 }
 
 
-connection.connect();
+//connection.connect();
 
 module.exports = (function() {
 	return {
@@ -88,6 +88,7 @@ var sqlQuery = 'SELECT *, ' +
 				// console.log(results);
 				res.json(results);
 			});
+			connection.end();
 		},
 
 
@@ -167,7 +168,7 @@ vendors.logo,vendors.name,vendors.phone,vendors.hours,vendors.coverPhoto
 
 				}
 			});
-
+			connection.end();
 
 		},
 		add: function(req, res) {

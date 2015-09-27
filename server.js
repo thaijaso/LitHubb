@@ -16,6 +16,5 @@ app.set('port', process.env.PORT || 8888);
 require('./config/routes.js')(app);
 
 app.listen(app.get('port'), function() {
-	console.log('wtf');
   	console.log('listening on port: ', app.get('port'));
 });
