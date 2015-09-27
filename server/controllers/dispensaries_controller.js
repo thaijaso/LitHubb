@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var connection = mysql.createConnection({
+var pool = mysql.createPool({
   	host : 'us-cdbr-iron-east-03.cleardb.net',
   	user : 'bb08a4822ce4b1',
   	password : '10f0179b',
@@ -51,9 +51,12 @@ module.exports = (function() {
 			} else {
 				sqlQuery = 'SELECT * FROM vendors WHERE TRIM(PrivilegeStatus) = "ACTIVE (ISSUED)"';
 			}
-			connection.query(sqlQuery, function(error, results) {
+			pool.getConnection(function(error, connection) {
+				connection.query(sqlQuery, function(error, results) {
 
-				res.json(results);
+					res.json(results);
+				});
+				connection.release();
 			});
 		}
 	}

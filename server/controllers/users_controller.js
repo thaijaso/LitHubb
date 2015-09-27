@@ -35,7 +35,7 @@ module.exports = (function() {
 							}
 					}
 				});
-			connection.release();	
+				connection.release();	
 			});
 		},
 
