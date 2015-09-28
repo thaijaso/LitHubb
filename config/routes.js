@@ -22,10 +22,12 @@ module.exports = function(app) {
 		//setting the req session data
 		// req.session.email = users[0].email
 	});
+
 	// This is a logout function for iOS users who must use express session
 	app.post('/logoutUser', function(req, res){
 		req.session.destroy()
 	})
+
 	// This is a function to check which user is logged in. For now this is only used for iOS.
 	app.get('/currentUser', function(req, res) {
 		var jsonObject = {
@@ -40,7 +42,8 @@ module.exports = function(app) {
 		console.log(req.body, "adding user")
 		users.add(req, res)
 	});
-// This is for the 'ajax-like' email is unique validation in iOS
+
+	// This is for the 'ajax-like' email is unique validation in iOS
 	app.post('/findUser', function(req, res) {
 		console.log(req.body)
 		users.findOne(req,res)
