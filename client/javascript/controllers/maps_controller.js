@@ -13,8 +13,12 @@ myApp.controller('MapsController', function ($scope, MapFactory, $location, $rou
 		// //need to set the name of the window
   //   }
 
+  	$scope.onClick = function(position) {
+  		console.log('marker position onClick: ', position);
+  	};
+
 	$scope.closeClick = function() {
-            $scope.windowOptions.visible = false;
+        $scope.windowOptions.visible = false;
     };
 
 	//gets all of the dispensaries from the factory function
@@ -26,6 +30,8 @@ myApp.controller('MapsController', function ($scope, MapFactory, $location, $rou
 			var position = i;
 			var markerObject = {
 				id: dispensaries.data[i].id,
+				address: dispensaries.data[i].address,
+				hours: dispensaries.data[i].hours,
 				coords: {latitude: dispensaries.data[i].lat, longitude: dispensaries.data[i].lng },
 				//info window stuff
 				title: dispensaries.data[i].Tradename,
@@ -35,16 +41,17 @@ myApp.controller('MapsController', function ($scope, MapFactory, $location, $rou
 					//immediately runs
 					console.log('marker sent: ', marker.model);
 					marker.model.show = !marker.model.show;
-					// $scope.$apply(function() {
-					// 	$location.path('/vendor/' + vendorID);
-					// })
 				}
 			};
-			//append the object to markers
+			//Marker object created
+
+			//end of for loop iteration, pushing the marker object
 			$scope.markers.push(markerObject);
 			
 		};
+		//end for loop
 	})
+	//end get coords
 	
 	// $scope.markers = [
 	//    	{ 
@@ -67,9 +74,9 @@ myApp.controller('MapsController', function ($scope, MapFactory, $location, $rou
 	// 			var vendorID = marker.$$childHead.models[1].id;
 	// 			console.log(marker);
 	// 			console.log(vendorID);
-	// 			$scope.$apply(function() {
-	// 				$location.path('/vendor/' + vendorID);
-	// 			});	
+				// $scope.$apply(function() {
+				// 	$location.path('/vendor/' + vendorID);
+				// });	
 	// 		}
 	// 	}
 

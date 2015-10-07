@@ -8,8 +8,13 @@
 				content="'content'"
 				events="markers.events"
 				click="click">
-				<ui-gmap-windows show="show" click="closeClick">
-                	<div ng-non-bindable>{{title}}</div>
+				<ui-gmap-windows show="show">
+                	<div ng-non-bindable>
+                		<p>{{title}}</p>
+                		<p>{{address}}</p>
+                		<p>{{hours}}</p>
+                		<button><a href="#/vendor/{{id}}">View Menu</a></button>
+                	</div>
             	</ui-gmap-windows>
 			</ui-gmap-markers>
 		</ui-gmap-google-map>
