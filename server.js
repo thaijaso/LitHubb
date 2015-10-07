@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded());
 app.use(session({secret: '123'}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client')));
-app.set('port', process.env.PORT || 8888);
+app.set('port', process.env.PORT || 8000);
 
 
 require('./config/routes.js')(app);

@@ -5,17 +5,13 @@
 				models="markers" 
 				idkey="markers.id" 
 				coords="'coords'" 
-				icon="'icon'" 
-				click="click(this)">
+				content="'content'"
+				events="markers.events"
+				click="click">
+				<ui-gmap-windows show="show" click="closeClick">
+                	<div ng-non-bindable>{{title}}</div>
+            	</ui-gmap-windows>
 			</ui-gmap-markers>
-			<!-- <ui-gmap-windows 
-				models="windows" 
-				coords="'coords'"
-				show="'show'"
-				templateUrl="'templateUrl'"
-				templateParameter="'templateParameter'"
-				closeClick="closeClick()">
-			</ui-gmap-windows>  -->
 		</ui-gmap-google-map>
 	</div>
 	<div class='container'>
