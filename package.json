@@ -1,6 +1,10 @@
 {
   "name": "lithubb",
   "version": "0.0.1",
+  "engines": {
+    "node": "0.12.7",
+    "npm": "2.11.3"
+  },
   "dependencies": {
     "body-parser": "latest",
     "express": "~4.2.0",
