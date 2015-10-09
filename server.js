@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+console.log(bodyParser);
 var mysql = require('mysql');
 var session = require('express-session');
 
