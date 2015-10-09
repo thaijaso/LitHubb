@@ -9,8 +9,6 @@
     "body-parser": "^1.14.1",
     "express": "~4.2.0",
     "express-session": "^1.11.3",
-    "mongoose": "latest",
-    "mysql": "^2.9.0",
-    "pg": "4.x"
+    "mysql": "^2.9.0"
   }
 }
