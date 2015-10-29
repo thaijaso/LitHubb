@@ -6,6 +6,7 @@ myApp.factory('MapFactory', function ($http) {
 	},
 	factory.getCoords = function(callback) {
 		$http.get('/dispensaries').then(function (dispensaries) {
+			console.log('got them', dispensaries);
 			callback(dispensaries);
 		})
 	}

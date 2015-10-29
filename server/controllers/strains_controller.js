@@ -1,12 +1,11 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  	host : 'localhost',
-  	user : 'root',
-  	password : 'root',
-  	database : 'greencommerce'
+  	host : 'us-cdbr-iron-east-03.cleardb.net',
+  	user : 'bb08a4822ce4b1',
+  	password : '10f0179b',
+  	database: 'heroku_59370a6610ff7e4'
 });
-
-connection.connect();
+//connection.connect();
 
 module.exports = (function() {
 	return {
